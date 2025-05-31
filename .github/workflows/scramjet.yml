@@ -60,7 +60,7 @@ jobs:
         working-directory: scramjet
 
       - name: Remove old build
-        run: rm scram
+        run: rm scram -rf
         
       - name: Build Scramjet
         run: pnpm build
