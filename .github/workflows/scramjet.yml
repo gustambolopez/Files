@@ -77,7 +77,7 @@ jobs:
       # Move and rename dist to scram in parent directory
       - name: Move and rename dist to scram
         run: |
-          rm -rf ./scram
+          rm -rf ../scram
           mv scramjet/dist ../scram
           cd ..
           rm -rf scramjet
