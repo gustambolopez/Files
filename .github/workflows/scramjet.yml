@@ -8,19 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the current repository
       - name: Checkout current repository
         uses: actions/checkout@v4
 
-      # Clone Scramjet repository
       - name: Clone Scramjet repository
         run: git clone https://github.com/mercuryworkshop/scramjet
 
-      # Change into Scramjet directory
       - name: Change into Scramjet directory
         run: cd scramjet
 
-      # Set up Node.js and pnpm
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -32,12 +28,10 @@ jobs:
           version: latest
           run_install: false
 
-      # Install pnpm dependencies
       - name: Install dependencies
         run: pnpm install
         working-directory: scramjet
 
-      # Set up Rust
       - name: Install Rust
         run: |
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -45,12 +39,10 @@ jobs:
           rustup target add wasm32-unknown-unknown
         working-directory: scramjet
 
-      # Install wasm-bindgen
       - name: Install wasm-bindgen
         run: cargo install wasm-bindgen-cli
         working-directory: scramjet
 
-      # Install Binaryen's wasm-opt
       - name: Install Binaryen
         run: |
           wget https://github.com/WebAssembly/binaryen/releases/download/version_116/binaryen-version_116-x86_64-linux.tar.gz
@@ -59,36 +51,32 @@ jobs:
           rm -rf binaryen-version_116 binaryen-version_116-x86_64-linux.tar.gz
         working-directory: scramjet
 
-      # Install wasm-snip fork
       - name: Install wasm-snip fork
         run: cargo install --git https://github.com/r58Playz/wasm-snip
         working-directory: scramjet
 
-      # Build the rewriter
       - name: Build rewriter
         run: pnpm rewriter:build
         working-directory: scramjet
 
-      # Build Scramjet
+      - name: Remove old build
+        run: rm scram
+        
       - name: Build Scramjet
         run: pnpm build
         working-directory: scramjet
 
-      # Move and rename dist to scram in parent directory
       - name: Move and rename dist to scram
         run: |
-          rm -rf ../scram
           mv scramjet/dist ../scram
           cd ..
           rm -rf scramjet
 
-      # Configure git for committing
       - name: Configure git
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
-      # Commit and push changes
       - name: Commit and push changes
         run: |
           git add scram
@@ -97,7 +85,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Upload scram directory as an artifact
       - name: Upload scram artifact
         uses: actions/upload-artifact@v4
         with:
