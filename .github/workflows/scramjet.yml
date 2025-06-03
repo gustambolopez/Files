@@ -1,6 +1,8 @@
 name: Build Scramjet
 
 on:
+  schedule:
+    - cron: '0 0 * * 0' # Runs every Sunday at 00:00 UTC
   workflow_dispatch:
 
 permissions: # Add this if using GITHUB_TOKEN for push
