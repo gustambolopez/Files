@@ -75,7 +75,7 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@d91a481090679876dfc4178fef17f286781251df
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GOD }}
 
       - name: Upload scram artifact
         uses: actions/upload-artifact@v4
