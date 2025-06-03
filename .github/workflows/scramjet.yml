@@ -76,7 +76,7 @@ jobs:
           git commit -a -m "Add changes"
 
       - name: Push changes
-        uses: ad-m/github-push-action@d91a481090679876dfc4178fef17f286781251df
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GOD }}
 
