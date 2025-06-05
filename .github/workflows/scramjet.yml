@@ -86,10 +86,10 @@ jobs:
             git commit -m "Build and add Scramjet artifacts from workflow"
           fi
 
-    #  - name: Push changes
-    #    uses: ad-m/github-push-action@v0.8.0 # Use a specific version
-    #    with:
-    #      github_token: ${{ secrets.GOD }} # Or ${{ secrets.GITHUB_TOKEN }} if permissions are set
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.8.0 # Use a specific version
+        with:
+          github_token: ${{ secrets.GOD }} # Or ${{ secrets.GITHUB_TOKEN }} if permissions are set
           # branch: ${{ github.ref }} # Optional: explicitly specify branch, defaults to current
 
       - name: Upload scram artifact
