@@ -83,7 +83,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit in scram directory."
           else
-            git commit -m "Build and add Scramjet artifacts from workflow"
+            git commit -m "chore: rebuild scramjet"
           fi
 
       - name: Push changes
