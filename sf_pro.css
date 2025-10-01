@@ -1,0 +1,16 @@
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://cdn.jsdelivr.net/gh/gustambolopez/Files@main/sf-pro-display_regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://cdn.jsdelivr.net/gh/gustambolopez/Files@main/sf-pro-text_regular.woff2") format("woff2");
+  font-display: swap;
+}
