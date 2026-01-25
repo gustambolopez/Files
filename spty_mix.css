@@ -1,0 +1,17 @@
+
+@font-face {
+  font-family: Spotify Mix';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://cdn.jsdelivr.net/gh/gustambolopez/Files@main/sf-pro-display_regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spotify Mix';
+  font-style: normal;
+  font-weight: 500;
+  src: url("https://cdn.jsdelivr.net/gh/gustambolopez/Files@main/sf-pro-display_semibold.woff2") format("woff2");
+  font-display: swap;
+}
+
